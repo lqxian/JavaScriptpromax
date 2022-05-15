@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<style type="text/css">
+			img{
+				position: relative;
+				width: 50px;
+			}
+			#bd{
+				border: 1px solid black;
+				width: 300px;
+				height: 500px;
+			}	
+			#muban{
+				background-color: blanchedalmond;
+				width: 100px;
+				height: 10px;
+				top:435px;
+				position: relative;
+			}
+			
+		</style>
+		<title></title>
+	</head>
+	<body onmousemove="mm()">
+		<button type="button" onclick="f()" , 100>开始动</button>
+		<div id=bd>
+			<img id=ball src="ball.jpg" alt="">
+			<div id=muban></div>
+		</div>
+		<script>
+		x = 100
+		y = 100
+		dx = 5
+		dy = 7
+		
+			function f(){
+				x += dx;
+				y += dy;
+				ball.style.left = x + 'px'
+				ball.style.top = y + 'px'
+				if (x>300-60) dx = -dx
+				if (y>500-60) dy = -dy
+				if (x<10) dx = -dx
+				if (y<10) dy = -dy
+				window.setInterval('f()', 1000)
+			}
+			function mm(){
+				//把木板的水平坐标设置为鼠标的水平坐标
+				n = event.x - 50
+				if(n<0) n = 0
+				if(n>200) n = 200
+				muban.style.left = n + 'px'
+				
+				
+			}
+		</script>
+	</body>
+</html>
